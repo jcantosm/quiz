@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quiz</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="icon" href="favicon.png" type="image/png" />
+  </head>
+  <body>
+    <h2>Quiz: el juego de las preguntas.</h2>
+    <p>Pregunta: <%= pregunta %></p>
+    <form id='form' action='/quizes/answer' method='GET'>
+        <input type='text' id='respuesta' name='respuesta' value='' placeholder='Responda aquí' size='20' />
+        <input type='submit' id='enviar' name='enviar' value='Enviar' />
+    </form>
+  </body>
+</html>
