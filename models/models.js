@@ -4,6 +4,7 @@ var path = require('path');
 // Postgres DATABASE_URL = postgres://user:passwd@host:port/database
 // SQLite   DATABASE_URL = sqlite://:@:/
 var url = process.env.DATABASE_URL.match(/(.*)\:\/\/(.*?)\:(.*)@(.*)\:(.*)\/(.*)/);
+// var url = "postgres://postgres:_nodeJS2015_@127.0.0.1:5432/quiz".match(/(.*)\:\/\/(.*?)\:(.*)@(.*)\:(.*)\/(.*)/);
 var DB_name  = (url[6]||null);
 var user     = (url[2]||null);
 var pwd      = (url[3]||null);
@@ -32,8 +33,8 @@ var Quiz = sequelize.import(path.join(__dirname, 'quiz'));
 exports.Quiz = Quiz;
 
 // inicializa tabla preguntas BBDD
-sequelize.sync().success(function() {
-    Quiz.count().success(function(count) {
+sequelize.sync().then(function() {
+    Quiz.count().then(function(count) {
         if (count === 0) { // la tabla se inicializa solo si está vacía
             Quiz.create({
                 pregunta: 'Capital de Italia',
