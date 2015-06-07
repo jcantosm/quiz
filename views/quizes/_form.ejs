@@ -1,0 +1,32 @@
+
+    <table align="center">
+        <tr>
+            <td>
+                <label for="preg" class="rem">Pregunta:</label>
+            </td>
+            <td>
+                <input type="text" id="preg" name="quiz[pregunta]"
+                    value="<%= quiz.pregunta %>" placeholder="Pregunta" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="resp" class="rem">Respuesta:</label>            
+            </td>
+            <td>
+                <input type="text" id="resp" name="quiz[respuesta]"
+                    value="<%= quiz.respuesta %>" placeholder="Respuesta" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="button" onclich="/quizes">Cancelar</button>
+                <input type="submit" name="guardar" value="Guadar" />
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    
+    
