@@ -11,11 +11,26 @@
         </tr>
         <tr>
             <td>
-                <label for="resp" class="rem">Respuesta:</label>            
+                <label for="resp" class="rem">Respuesta:</label>
             </td>
             <td>
                 <input type="text" id="resp" name="quiz[respuesta]"
                     value="<%= quiz.respuesta %>" placeholder="Respuesta" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="tema" class="rem">Tema:</label>
+            </td>
+            <td>
+                <select id="tema" name="quiz[tema]">
+                    <option value='' <%= quiz.tema === '' ? 'selected' : '' %>></option>
+                    <option value="Otro" <%= quiz.tema === 'Otro' ? 'selected' : '' %>>Otro</option>
+                    <option value="Humanidades" <%= quiz.tema === 'Humanidades' ? 'selected' : '' %>>Humanidades</option>
+                    <option value="Ocio"<%= quiz.tema === 'Ocio' ? 'selected' : '' %>>Ocio</option>
+                    <option value="Ciencia"<%= quiz.tema === 'Ciencia' ? 'selected' : '' %>>Ciencia</option>
+                    <option value="Tecnología"<%= quiz.tema === 'Tecnología' ? 'selected' : '' %>>Tecnología</option>
+                </select>
             </td>
         </tr>
         <tr>
