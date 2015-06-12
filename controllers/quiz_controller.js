@@ -7,7 +7,8 @@ exports.load = function(req, res, next, quizId) {
         if (quiz) {
             req.quiz = quiz;
             next();
-        } else {
+        }
+        else {
             next(new Error('No existe quizId = ', quizId));
         }
     });
@@ -15,7 +16,14 @@ exports.load = function(req, res, next, quizId) {
 
 // GET /quizes
 exports.index = function(req, res) {
-    models.Quiz.findAll().then(function(quizes) {
+    var search = '';
+    search = (req.query.search !== undefined ? req.query.search : '');
+    search = search.replace(/\s/g, '%');
+    search = search.toUpperCase();
+    
+    models.Quiz.findAll({
+        where: ["upper(pregunta) like ?", '%' + search + '%']
+    }).then(function(quizes) {
         res.render('quizes/index', {
             quizes: quizes,
             errors: []

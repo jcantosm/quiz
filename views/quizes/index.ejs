@@ -1,18 +1,32 @@
-
-    <table width="450px">
-        <% var i; for (i=0; i < quizes.length; i++) { %>        
-        <tr>
-            <td><a href="/quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td>
-            <td><a href="/quizes/<%= quizes[i].id %>/edit"><button>Editar</button></a></td>
-            <td>
-                <form method="post" action="/quizes/<%= quizes[i].id %>?_method=delete">
-                    <button type="submit" onClick="return confirm('Borrar: <%= quizes[i].pregunta %>');">
-                        Borrar
-                    </button>
-                </form>
-            </td>
-        </tr>
-        <% } %>
-    </table>
-    <a href="/quizes/new"><button type="button">Crear Pregunta</button></a>
+        <table width="350px">
+            <tr>
+                <td colspan="3"> Buscador de preguntas: </td>
+            </tr>
+            <form name="search" action="/quizes" method="GET">
+            <tr>
+                <td> <input type="text" name="search" value="" size="20" /> </td>
+                <td colspan="2"> <input type="submit" value="Buscar" /> </td>
+            </tr>
+            </form>
+            <tr><td><br/></td></tr>
+            <% var i; for (i=0; i < quizes.length; i++) { %>        
+            <tr>
+                <td><a href="/quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td>
+                <td><a href="/quizes/<%= quizes[i].id %>/edit"><button>Editar</button></a></td>
+                <td>
+                    <form method="post" action="/quizes/<%= quizes[i].id %>?_method=delete">
+                        <button type="submit" onClick="return confirm('Borrar: <%= quizes[i].pregunta %>');">
+                            Borrar
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            <% } %>
+            <tr><td><br/></td></tr>
+            <tr>
+                <td colspan="3"><a href="/quizes/new"><button type="button">Crear Pregunta</button></a></td>
+            </tr>
+        </table>
+        
+    
     
