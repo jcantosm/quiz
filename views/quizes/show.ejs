@@ -4,3 +4,11 @@
         <input type='text' id='respuesta' name='respuesta' value='' placeholder='Respuesta' size='20' />
         <input type='submit' id='enviar' name='enviar' value='Enviar' />
     </form>
+    
+    <br />
+    <p><a href="/quizes/<%= quiz.id %>/comments/new"><button>Nuevo comentario</button></a></p>
+    
+    <p><strong>Comentarios:</strong></p>
+    <% for (index in quiz.Comments) { %>
+        <p>- <%= quiz.Comments[index].texto %></p>
+    <% } %>
