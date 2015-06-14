@@ -1,3 +1,4 @@
+
 exports.loginRequired = function(req, res, next) {
     if (req.session.user) {
         next();
@@ -36,6 +37,7 @@ exports.create = function(req, res) {
             id: user.id,
             username: user.username
         };
+        req.session.time = new Date();
 
         res.redirect(req.session.redir.toString());
     });
